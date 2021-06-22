@@ -1,0 +1,76 @@
+﻿<Window
+    x:Class="Dev.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:gui="http://globomantics.com/2019/ui/wpf"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    Style="{DynamicResource MainWindowStyle}">
+    <Grid Background="{gui:ThemeResource ResourceKey=ContentBackground}">
+
+        <CheckBox
+            x:Name="EnableIput"
+            Margin="8"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="IsEnable"
+            IsChecked="True" />
+
+        <Button
+            Margin="8"
+            Padding="8,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            gui:ButtonProperties.CornerRadius="5"
+            Click="Button_Click"
+            Content=" Switch Theme"
+            IsDefault="True" />
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            IsEnabled="{Binding ElementName=EnableIput, Path=IsChecked}">
+            <TextBlock
+                Margin="0,8"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="16"
+                Foreground="{gui:ThemeResource ResourceKey=ContentForeground}"
+                Text="This is a test!" />
+            <Button
+                Margin="0,8"
+                Content="Button" />
+            <CheckBox
+                Margin="0,8"
+                Content="CheckBox" />
+            <ComboBox Margin="0,8">
+                <ComboBoxItem
+                    Content="Item 1"
+                    IsSelected="true" />
+                <ComboBoxItem
+                    Content="Item 2"
+                    IsSelected="true" />
+                <ComboBoxItem
+                    Content="Item 3"
+                    IsSelected="true" />
+            </ComboBox>
+            <ComboBox
+                Margin="0,8"
+                IsEditable="True">
+                <ComboBoxItem
+                    Content="Item 1"
+                    IsSelected="true" />
+                <ComboBoxItem
+                    Content="Item 2"
+                    IsSelected="true" />
+                <ComboBoxItem
+                    Content="Item 3"
+                    IsSelected="true" />
+            </ComboBox>
+            <GroupBox
+                Content="Novo Teste"
+                Header="Teste" />
+            <TextBox />
+        </StackPanel>
+    </Grid>
+</Window>

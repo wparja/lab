@@ -1,0 +1,157 @@
+﻿<Window
+    x:Class="Transformation2D.ObjectMatrixTransforms"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Transformation2D"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ObjectMatrixTransforms"
+    Width="400"
+    Height="300"
+    mc:Ignorable="d">
+    <Viewbox Stretch="Uniform">
+        <Grid
+            Width="430"
+            Height="300"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="280" />
+            </Grid.ColumnDefinitions>
+            <Grid
+                Width="140"
+                Height="300"
+                Margin="5,10,5,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="70" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="5,5,10,5"
+                    HorizontalAlignment="Right">
+                    M11
+                </TextBlock>
+                <TextBox
+                    Name="tbM11"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    TextAlignment="Center">
+                    1
+                </TextBox>
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="5,5,10,5"
+                    HorizontalAlignment="Right">
+                    M12
+                </TextBlock>
+                <TextBox
+                    Name="tbM12"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    TextAlignment="Center">
+                    0
+                </TextBox>
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Margin="5,5,10,5"
+                    HorizontalAlignment="Right">
+                    M21
+                </TextBlock>
+                <TextBox
+                    Name="tbM21"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    TextAlignment="Center">
+                    0
+                </TextBox>
+                <TextBlock
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Margin="5,5,10,5"
+                    HorizontalAlignment="Right">
+                    M22
+                </TextBlock>
+                <TextBox
+                    Name="tbM22"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    TextAlignment="Center">
+                    1
+                </TextBox>
+                <TextBlock
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Margin="5,5,10,5"
+                    HorizontalAlignment="Right">
+                    OffsetX
+                </TextBlock>
+                <TextBox
+                    Name="tbOffsetX"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    TextAlignment="Center">
+                    0
+                </TextBox>
+                <TextBlock
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Margin="5,5,10,5"
+                    HorizontalAlignment="Right">
+                    OffsetY
+                </TextBlock>
+                <TextBox
+                    Name="tbOffsetY"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    TextAlignment="Center">
+                    0
+                </TextBox>
+                <Button
+                    Grid.Row="6"
+                    Grid.ColumnSpan="2"
+                    Height="25"
+                    Margin="15,20,15,5"
+                    Click="BtnApply_Click"
+                    Grid.Column="0">
+                    Apply
+                </Button>
+                <Button
+                    Grid.Row="7"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Height="25"
+                    Margin="15,0,15,5"
+                    Click="BtnClose_Click">
+                    Close
+                </Button>
+            </Grid>
+            <Border Margin="10" Grid.Column="1" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Background="{StaticResource MyGrayGridBrush}">
+                <Canvas x:Name="canvas1" Grid.Column="1" ClipToBounds="True" Width="270" Height="280">
+                    <TextBlock Canvas.Top="53" Canvas.Left="90">Original shape</TextBlock>
+                    <Rectangle Canvas.Top="70" Canvas.Left="100" Width="50" Height="70" Stroke="Black" StrokeThickness="2" StrokeDashArray="3,1"/>
+                    <Rectangle x:Name="rect" Canvas.Top="70" Canvas.Left="100" Width="50" Height="70" Fill="LightCoral" Opacity="0.5" Stroke="Black" StrokeThickness="2">
+                        <Rectangle.RenderTransform>
+                            <MatrixTransform x:Name="matrixTransform"/>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                </Canvas>
+            </Border>
+
+        </Grid>
+    </Viewbox>
+</Window>

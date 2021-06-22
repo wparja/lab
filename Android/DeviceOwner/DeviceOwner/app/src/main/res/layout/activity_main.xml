@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/addpackageslocktask"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="228dp"
+        android:layout_marginLeft="228dp"
+        android:layout_marginTop="72dp"
+        android:text="Add package lock task"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/clearpackageslocktask"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="Clear package lock task"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.287"
+        app:layout_constraintStart_toEndOf="@+id/addpackageslocktask"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addhome"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="228dp"
+        android:layout_marginLeft="228dp"
+        android:layout_marginTop="20dp"
+        android:text="Add home"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startlocktask" />
+
+    <Button
+        android:id="@+id/removehome"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="remove home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.292"
+        app:layout_constraintStart_toEndOf="@+id/addhome"
+        app:layout_constraintTop_toBottomOf="@+id/stoplocktask" />
+
+    <Button
+        android:id="@+id/startanotherappwithoutflags"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="Start another app without flags"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addhome" />
+
+    <Button
+        android:id="@+id/startlocktask"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="228dp"
+        android:layout_marginTop="24dp"
+        android:text="Start lock task"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addclientpackage"
+        android:layout_marginLeft="228dp" />
+
+    <Button
+        android:id="@+id/stoplocktask"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="280dp"
+        android:text="Stop lock task"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/removeclientpackage"
+        android:layout_marginRight="280dp" />
+
+    <Button
+        android:id="@+id/addclientpackage"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="228dp"
+        android:layout_marginLeft="228dp"
+        android:layout_marginTop="16dp"
+        android:text="Add client package"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addpackageslocktask" />
+
+    <Button
+        android:id="@+id/removeclientpackage"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Remove client package"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.287"
+        app:layout_constraintStart_toEndOf="@+id/addclientpackage"
+        app:layout_constraintTop_toBottomOf="@+id/clearpackageslocktask" />
+
+    <Button
+        android:id="@+id/startanotherappwithflags"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Start another app with flags"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startanotherappwithoutflags" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="172dp"
+        android:text="Broadcast"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startanotherappwithflags" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
