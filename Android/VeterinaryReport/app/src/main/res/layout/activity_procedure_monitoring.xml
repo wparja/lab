@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@android:color/black"
     tools:context=".ProcedureMonitoringActivity">
     <com.github.mikephil.charting.charts.LineChart
         android:layout_width="match_parent"
@@ -13,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@android:color/black"
         android:padding="4dp">
         <LinearLayout
             android:layout_width="match_parent"
