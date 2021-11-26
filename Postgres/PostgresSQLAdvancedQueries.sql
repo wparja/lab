@@ -1,4 +1,22 @@
-﻿	INSERT INTO public.film( title, description, release_year, rental_duration, lenght)
+﻿	CREATE TABLE public.film
+(
+  film_id integer NOT NULL DEFAULT nextval('film_film_id_seq'::regclass),
+  title text,
+  description text,
+  release_year integer,
+  rental_duration smallint,
+  lenght smallint,
+  CONSTRAINT film_pkey PRIMARY KEY (film_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.film
+  OWNER TO postgres;
+	
+	
+	
+	INSERT INTO public.film( title, description, release_year, rental_duration, lenght)
 	VALUES ( 'Test1', 'Test1', 2001, 1, 160);
 	INSERT INTO public.film( title, description, release_year, rental_duration, lenght)
 	VALUES ( 'Test2', 'Test2', 2002, 6, 90);
