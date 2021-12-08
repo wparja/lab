@@ -1,26 +1,24 @@
-import React, {useState} from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import Person from './Person/Person'
 
-const App = props => {   
+class App extends Component {   
 
-  const [personsState, setPersonsState] = useState({
+
+  state = {
     persons: [
       {name: 'Max', age: 28},
       {name: 'Manu', age: 29},
       {name: 'Stephanie', age: 26}
-    ]
-  });
+    ], 
+    otherState: 'some other value',
+    showPersons: false
+  }
 
-  const[otherState ] = useState('some other value');
-
-
-  console.log(personsState, otherState);
-
-  const switchNameHandler = (newName) => {
+  switchNameHandler = (newName) => {
     //console.log('was clicked');
    // this.state.persons[0].name = 'Maximilian';
-   setPersonsState({
+   this.setState({
      persons: [
       {name: newName, age: 28},
       {name: 'Manu', age: 29},
@@ -29,8 +27,8 @@ const App = props => {
    });
   };
 
-  const nameChangedHandler = (event) => {
-    setPersonsState({
+  nameChangedHandler = (event) => {
+    this.setState({
       persons: [
        {name: 'Max', age: 29},
        {name: event.target.value, age: 29},
@@ -39,6 +37,13 @@ const App = props => {
     });
   }
 
+  togglePersonsHandler = () => {
+    const show = this.state.showPersons;
+    this.setState({showPersons: !show});
+  }
+
+
+  render() {
   const style = {
     backgroundColor: 'white',
     font: 'inherit',
@@ -47,23 +52,34 @@ const App = props => {
     cursor: 'pointer'
   };
 
+  let persons = null;
+
+  if (this.state.showPersons) {
+    persons = (
+      <div>
+      <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
+      <Person name={this.state.persons[1].name} age={this.state.persons[1].age} 
+      click={this.switchNameHandler.bind(this, 'arja')}
+      changed={this.nameChangedHandler}
+      >My Hobbies: Racing</Person>
+      <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
+      <p>{this.state.otherState}</p>
+      </div> 
+    )
+  }
+
     return (
       <div className="App">
         <h1>Hi, I'm a React App</h1>
         <p>This is really working</p>
-        <button onClick={ () => switchNameHandler('Patrick')}
+        <button onClick={this.togglePersonsHandler}
         style={style}
-        >Switch Names</button>
-        <Person name={personsState.persons[0].name} age={personsState.persons[0].age} />
-        <Person name={personsState.persons[1].name} age={personsState.persons[1].age} 
-        click={switchNameHandler.bind(this, 'arja')}
-        changed={nameChangedHandler}
-        >My Hoobies: Racing</Person>
-        <Person name={personsState.persons[2].name} age={personsState.persons[2].age} />
-        <p>{personsState.otherState}</p>
+        >Toggle Persons</button>
+        {persons}
       </div>
     );
    // return React.createElement('div', {className: 'App'}, React.createElement('h1',null, 'Does this work now?'));  
+}
 }
 
 export default App;
