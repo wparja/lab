@@ -61,6 +61,24 @@ begin
 end;
 $$
 
+-- fetch the customer table
+do $$
+Declare 
+ firstName TEXT;
+ lastName TEXT;
+begin	    
+    for i IN 1..100 loop
+          firstName := getFirstName();
+          lastName := getLastName();                    
+	 INSERT INTO customer(customer_id, first_name, last_name) values 
+	 (	i, 
+		firstName, 
+		lastName
+	);
+    end loop;
+end;
+$$
+
 
 CREATE OR REPLACE FUNCTION getFilmTitle() RETURNS TEXT AS $$
 DECLARE
@@ -92,7 +110,7 @@ do $$
 Declare
 	filmTitle TEXT;
 BEGIN
-	FOR i IN 1..10 LOOP
+	FOR i IN 1..100 LOOP
 	filmTitle := getFilmTitle();                    
 	 INSERT INTO 
 		film( title, description, release_year, rental_duration, lenght, rental_rate) 
@@ -108,12 +126,12 @@ do $$
 Declare
 	_rental_date TIMESTAMP;
 BEGIN
-	FOR i IN 1..10 LOOP
-	_rental_date := (select timestamp '2014-01-10 08:00:00' + random() * (timestamp '2021-01-20 18:00:00' - timestamp '2014-01-10 08:00:00'));                    
+	FOR i IN 1..100 LOOP
+	_rental_date := (select timestamp '2014-01-10 08:00:00' + random() * (timestamp '2021-01-20 18:00:00' - timestamp '2014-01-10 08:00:00'));                  
 	 INSERT INTO 
 		rental (rental_date, inventory_id, customer_id, return_date, staff_id, last_update)
 	VALUES 
-		(_rental_date, (SELECT random() * 100), (SELECT random() * 500), (SELECT _rental_date + interval '4 day'), (SELECT random() * 4), (SELECT _rental_date + interval '4 day'));
+		(_rental_date, (SELECT random() * 100), (select customer_id from customer order by random() limit 1), (SELECT _rental_date + interval '4 day'), (SELECT random() * 4), (SELECT _rental_date + interval '4 day'));
 	END LOOP;
 END;
 $$

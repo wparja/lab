@@ -28,22 +28,38 @@ WITH (
   OIDS=FALSE
 );
 
+CREATE TABLE public.customer
+(
+  customer_id integer ,
+  first_name character varying(45),
+  last_name character varying(45),
+  CONSTRAINT customer_pkey PRIMARY KEY (customer_id)
+)
+WITH (
+  OIDS=FALSE
+);
+
 -- ########################################################################
 -- RENTAL TABLE
 CREATE TABLE public.rental
 (
-  rental_id serial,
+  rental_id integer NOT NULL DEFAULT nextval('rental_rental_id_seq'::regclass),
   rental_date timestamp without time zone,
   inventory_id integer,
   customer_id smallint,
   return_date timestamp without time zone,
   staff_id smallint,
   last_update timestamp without time zone,
-  CONSTRAINT rental_pkey PRIMARY KEY (rental_id)
+  CONSTRAINT rental_pkey PRIMARY KEY (rental_id),
+  CONSTRAINT customer_id_fkey FOREIGN KEY (customer_id)
+      REFERENCES public.customer (customer_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
 )
 WITH (
   OIDS=FALSE
 );
+ALTER TABLE public.rental
+  OWNER TO postgres;
 
 -- Find out total rental payment collected from customers
 -- ########################################################################
