@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:onClick="onClick"
+    tools:context=".MainActivity">
+    <Button
+    android:id="@+id/single_layout_xml"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Single transition layout from xml"
+    android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/single_layout_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Single transition layout from code"
+        android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/single_transition_without_scene"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Single transition without scene"
+        android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/key_frame_transition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Key frame transition"
+        android:onClick="onClick"/>
+</LinearLayout>

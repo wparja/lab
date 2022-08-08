@@ -1,0 +1,102 @@
+Esse material inclui
+
+Property animations
+Choreograph animations
+Transition between layouts
+Transition between activities
+Animate vector drawables
+
+
+Evolution of animation apis
+
+# API
+API 1 - View Animations
+ - Oldest view animation API.
+ 
+API 11 - Property Animation - ValueAnimator, ObjectAnimator
+ - We can animate any object values over time.
+ 
+API 12 - Property Animation - ViewPropertyAnimator
+ - Part of Property Animation and has view object as a target.
+ 
+API 19 - Transition API
+ - Transitions between layouts and screens.
+ 
+API 21 - Animated Vector Drawables
+ - Animated drawables ad vectors.
+ 
+AndroidX
+ - Physics Based Animations, Motion Layout
+ 
+
+# XY-Coordinates in Android
+ The (0,0) coordinate is on top left edge of screen.
+ 
+  (0,0)-----------------------(+x, 0)
+	|                            |
+	|                            |
+	|                            |
+	|                            |
+	|                            |
+	|                            |
+	|                            |
+	|                            |
+	|                            |
+	|                            |
+	|                            |
+	|                            |
+  (0, +y)--------------------(+x, +y)   
+ 
+# PROPERTY ANIMATION
+ 
+ ValueAnimator
+  - Computes values for an animation over time, the values could be float, int or color.
+  - Use the computed values to update the property of an object over timer.
+  - Use AnimatorUpdateListener interface to apply animation to the view.
+ 
+ ObjectAnimator
+  - Computes values over time and modifies the property of the object over time.
+  - The animated property updates automatically
+  - No need to implement AnimatorUpdateListener
+  
+
+  We can implement property animation in two different ways.
+  1 - XML
+      - Store animation files within "res/animator" directory
+	  A fade-out animation xml example:
+	  
+	  <objectAnimator
+		android:propertyName = "alpha" <!-- What property you want to apply the animation, in this case is alpha property -->
+		android:valueFrom = "1.0" <!-- start value, opacity offset of 1.0 means opaque -->
+		android:valueTo = "0.0" <!-- end value, opacity offset of 0.0 means transparent -->
+		android:valueType = "floatType" <!-- value type -->
+		android:duration = "500"/> <!-- duration in milleseconds -->
+		
+		In this example the View will fade out in 0.5 seconds
+		
+	  Another example, the scale animation
+	  <objectAnimator
+		android:propertyName = "scaleX" <!-- What property you want to apply the animation, in this case is scaleX property -->
+		android:valueFrom = "1.0" <!-- start value, 1.0 means de original dimension -->
+		android:valueTo = "0.0" <!-- end value, 1.5 means that the scaleX with grow 1.5 times its original dimension  -->
+		android:valueType = "floatType" <!-- value type -->
+		android:duration = "500"/> <!-- duration in milleseconds -->
+		
+  2 - From code
+	  - Without using an XML resources animators
+	  
+
+	  
+	We can listener the animator events by Animator.AnimatorListener interface
+		- onAnimationStart
+			- Notifies the start of animation
+		- onAnimationEnd
+			- Notifies the end of animation
+			- Not called for animations whose repeat cout is INFINITE
+		- onAnimationRepeat
+			- Notifies the repetitio of animation
+		- onAnimationCancel
+			- Called when the animation is cancelled
+			- A cancelled animation also calls onAnimationEnd
+  
+  
