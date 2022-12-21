@@ -1,0 +1,69 @@
+[
+  {
+    "ApplicationName": "All",
+    "ApplicationKey": "",
+    "Items": [
+      {
+        "Header": {
+          "DisplayName": "Logs",
+          "Command": "Command: Z"
+        },
+        "Items": [
+          {
+            "DisplayName": "Trace",
+            "Command": "[{\"key\":\"level\",\"value\":\"trace\"}]"
+          },
+          {
+            "DisplayName": "Debug",
+            "Command": "[{\"key\":\"level\",\"value\":\"debug\"}]"
+          },
+          {
+            "DisplayName": "Info",
+            "Command": "[{\"key\":\"level\",\"value\":\"info\"}]"
+          },
+          {
+            "DisplayName": "Warning",
+            "Command": "[{\"key\":\"level\",\"value\":\"warning\"}]"
+          },
+          {
+            "DisplayName": "Error",
+            "Command": "[{\"key\":\"level\",\"value\":\"error\"}]"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "ApplicationName": "Mobile Platform",
+    "ApplicationKey": "",
+    "Items": [
+      {
+        "Header": {
+          "DisplayName": "Reboot",
+          "Command": "[{\"key\":\"reboot\",\"value\":\"\"}]"
+        },
+        "Items": []
+      },
+      {
+        "Header": {
+          "DisplayName": "Restart",
+          "Command": "[{\"key\":\"restart\",\"value\":\"\"}]"
+        },
+        "Items": []
+      }
+    ]
+  },
+  {
+    "ApplicationName": "Tracer Plus",
+    "ApplicationKey": "",
+    "Items": [     
+      {
+        "Header": {
+          "DisplayName": "Restart",
+          "Command": "[{\"key\":\"restart\",\"value\":\"\"}]"
+        },
+        "Items": []
+      }
+    ]
+  }
+]
